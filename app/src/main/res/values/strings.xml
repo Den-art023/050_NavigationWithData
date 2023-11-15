@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Es Jumbo</string>
+    <string name="name">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="noTlp">Telepon</string>
+    <string name="submit">Selanjutnya</string>
+    <string name="back">Back</string>
     <string name="back_button">Kembali</string>
     <string name="confirm">Konfirmasi</string>
     <string name="next">Lanjut</string>
