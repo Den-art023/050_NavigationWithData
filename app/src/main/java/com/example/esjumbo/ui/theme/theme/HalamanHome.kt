@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -52,7 +53,8 @@ fun HalamanHome(
                 Image(
                     painter = image,
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.size(width = 300.dp, height = 300.dp)
                 )
                 Text(
                     text = "Es Teh",
@@ -63,7 +65,7 @@ fun HalamanHome(
                 Text(
                     text = "Gembrunggung",
                     color = Color.DarkGray,
-                    fontSize = 60.sp,
+                    fontSize = 50.sp,
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
             }
@@ -88,10 +90,8 @@ fun HalamanHome(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHalamanHome(){
+fun PreviewHalamanHome() {
     EsJumboTheme {
-        HalamanHome {
-
-        }
+        HalamanHome{}
     }
 }
