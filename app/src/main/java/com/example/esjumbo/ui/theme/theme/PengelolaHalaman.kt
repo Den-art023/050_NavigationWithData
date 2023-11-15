@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -29,6 +30,7 @@ import com.example.esjumbo.data.SumberData.flavors
 
 enum class PengelolaHalaman {
     Home,
+    Form,
     Rasa,
     Summary
 }
@@ -77,8 +79,17 @@ fun EsJumboApp(
         ) {
             composable(route = PengelolaHalaman.Home.name) {
                 HalamanHome(
-                    onNextButtonClicked = { navController.navigate(PengelolaHalaman.Rasa.name) }
+                    onNextButtonClicked = { navController.navigate(PengelolaHalaman.Form.name) }
                 )
+            }
+
+            composable(route = PengelolaHalaman.Form.name) {
+                HalamanSatu(onNextButtonClicked = {
+                    ViewModel.setPelanggan(it)
+                    navController.navigate(PengelolaHalaman.Rasa.name)
+                }) {
+
+                }
             }
 
             composable(route = PengelolaHalaman.Rasa.name) {
@@ -111,7 +122,16 @@ private fun cancelOrderAndNavigateToRasa(navController: NavHostController) {
     navController.popBackStack(PengelolaHalaman.Rasa.name, inclusive = false)
 }
 
-private fun cancelOrderAndNavigateToHome(viewModel: OrderViewModel, navController: NavHostController){
+private fun cancelOrderAndNavigateToHome(
+    viewModel: OrderViewModel,
+    navController: NavHostController
+) {
     viewModel.resetOrder()
     navController.popBackStack(PengelolaHalaman.Home.name, inclusive = false)
+}
+
+@Preview
+@Composable
+fun PreviewPengelola(){
+    EsJumboApp()
 }

@@ -10,9 +10,19 @@ import java.text.NumberFormat
 
 private const val HARGA_PER_CUP = 3000
 
-class OrderViewModel: ViewModel() {
+class OrderViewModel : ViewModel() {
     private val _stateUI = MutableStateFlow(OrderAndFormUIState())
     val stateUI: StateFlow<OrderAndFormUIState> = _stateUI.asStateFlow()
+
+    fun setPelanggan(list: MutableList<String>) {
+        _stateUI.update { stateSaatIni ->
+            stateSaatIni.copy(
+                nama = list[0],
+                tlp = list[1],
+                alamat = list[2]
+            )
+        }
+    }
 
     fun setJumlah(jmlEsJumbo: Int) {
         _stateUI.update { stateSaatIni ->

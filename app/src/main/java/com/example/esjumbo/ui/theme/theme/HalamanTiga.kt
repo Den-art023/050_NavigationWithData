@@ -83,5 +83,6 @@ fun HalamanTiga(
 @Preview(showBackground = true)
 @Composable
 fun PreviewTiga(){
-    HalamanTiga(orderAndFormUIState = OrderAndFormUIState(), onCancelButtonClicked = { /*TODO*/ })
+    HalamanTiga(orderAndFormUIState = OrderAndFormUIState(),
+        onCancelButtonClicked = { /*TODO*/ })
 }
