@@ -32,9 +32,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Preview() {
     EsJumboTheme {
-        HalamanSatu(
-            onNextButtonClicked = {},
-            onCancelButtonClicked = {}
+        HalamanHome (
+            onNextButtonClicked = {}
         )
     }
 }

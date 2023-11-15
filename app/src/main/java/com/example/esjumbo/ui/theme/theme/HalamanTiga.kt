@@ -17,19 +17,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.esjumbo.R
-import com.example.esjumbo.data.OrderUIState
+import com.example.esjumbo.data.OrderAndFormUIState
 import com.example.esjumbo.ui.theme.komponen.FormatLabelHarga
 
 @Composable
 fun HalamanTiga(
-    orderUIState: OrderUIState,
+    orderAndFormUIState: OrderAndFormUIState,
     onCancelButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val items = listOf(
-        Pair(stringResource(R.string.quantity), orderUIState.jumlah),
-        Pair(stringResource(R.string.flavor), orderUIState.rasa)
+        Pair(stringResource(id = R.string.name), orderAndFormUIState.nama),
+        Pair(stringResource(id = R.string.noTlp), orderAndFormUIState.tlp),
+        Pair(stringResource(id = R.string.alamat), orderAndFormUIState.alamat),
+        Pair(stringResource(R.string.quantity), orderAndFormUIState.jumlah),
+        Pair(stringResource(R.string.flavor), orderAndFormUIState.rasa)
     )
     Column(
         modifier = Modifier,
@@ -48,7 +52,7 @@ fun HalamanTiga(
             }
             Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
             FormatLabelHarga(
-                subtotal = orderUIState.harga,
+                subtotal = orderAndFormUIState.harga,
                 modifier = Modifier.align(Alignment.End)
             )
         }
@@ -74,4 +78,10 @@ fun HalamanTiga(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewTiga(){
+    HalamanTiga(orderAndFormUIState = OrderAndFormUIState(), onCancelButtonClicked = { /*TODO*/ })
 }

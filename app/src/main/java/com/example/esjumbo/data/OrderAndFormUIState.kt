@@ -1,6 +1,6 @@
 package com.example.esjumbo.data
 
-data class OrderUIState(
+data class OrderAndFormUIState(
     val jumlah: Int = 0,
     val rasa: String = "",
     val harga: String = "",

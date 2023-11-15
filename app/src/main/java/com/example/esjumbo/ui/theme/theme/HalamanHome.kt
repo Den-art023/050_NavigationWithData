@@ -25,7 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.esjumbo.R
-import com.example.esjumbo.ui.theme.EsJumboTheme
 
 @Composable
 fun HalamanHome(
@@ -90,8 +89,6 @@ fun HalamanHome(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHalamanHome() {
-    EsJumboTheme {
-        HalamanHome{}
-    }
+fun PreviewHome() {
+    HalamanHome(onNextButtonClicked = {})
 }
