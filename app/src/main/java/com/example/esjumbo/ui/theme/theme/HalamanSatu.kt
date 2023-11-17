@@ -64,7 +64,7 @@ fun HalamanSatu(
         )
         OutlinedTextField(
             value = almtTxt,
-            onValueChange = { namaTxt = it },
+            onValueChange = { almtTxt = it },
             label = { Text(text = stringResource(id = R.string.alamat)) }
         )
 
